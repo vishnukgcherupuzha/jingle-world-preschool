@@ -1,0 +1,222 @@
+html {
+    scroll-behavior: smooth;
+    transition-duration: 2s;
+  }
+body{
+    background: rgb(240, 240, 240) !important;
+    overflow: auto;
+}
+h2{
+    font-family: 'Righteous', cursive !important;
+    font-weight: 900;
+    margin: 2rem 0 0 0 !important;
+}
+.logo{
+    max-width: 250px !important;
+}
+button{
+    padding: .4rem  .6rem .4rem .8rem ;
+    border: 0;
+    transition-duration: 1s;
+    box-shadow: 0 8px 6px -6px black;   
+}
+button:hover{
+    box-shadow:0 0 0 0 ; 
+}
+
+.nav-button{
+    background-image: linear-gradient(to right,  #FF4E00 70% , #FFF 30%) !important; 
+    color: #fff;
+    font-weight: 500;
+}
+.nav-button:hover{
+    background: #fff;
+    transition-duration: .21s;
+}
+.navunline{
+    margin: -10px 0 0 0;
+}
+.header1{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    width: 100%;
+    height: 100vh;
+    position:fixed;
+    z-index:-1;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.headback{
+    background: url("kid-with-toys.png");
+    width: 100%;
+    height: 100vh;
+    /* Full height */
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header-content{
+    padding-top: 150px !important;
+    text-align: center;
+    
+}
+.header-content h1{
+    font-family: 'Niconne', cursive;
+    font-size: 80px;
+    color: #fff !important;
+}
+.header-content h4{
+    font-family: 'Righteous', cursive;
+    color: rgba(0, 255, 213, 0.781) !important;
+}
+.heading{
+    background: #f2f2f2;
+    padding: 20px;
+    margin-top: 20px;
+}
+.uline{
+    width: 100px;
+    border: 2px solid #FF4E00 !important;
+    margin: 0 0 2rem 0;
+}
+.card-left{
+    background:#FF4E00 !important ;
+    color: #fff !important;
+}
+.card-black{
+    background:#000000 !important ;
+    color: #fff !important; 
+  
+}
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.card-background{
+background: #fff;
+padding: 1rem;
+}
+.card-img{
+    max-width: 33.5rem;
+    min-height: 200px;
+}
+.small-screen{
+    display: none;
+}
+.darkback{
+    background: #000;
+}
+.card-background-black{
+    background: #000;
+    padding: 20px;
+}
+.contactimg{
+max-width: 400px !important;
+padding: 10px;
+}   
+.con-button{
+    background-image: linear-gradient(to right,  #FF4E00 70% , #FFF 30%) !important; 
+    color: #fff;
+    font-weight: 500;
+}
+.con-button:hover{
+    background: #fff;
+    transition-duration: .21s;
+} 
+.contactimgpad{
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+input{
+    border: 2px solid #ffffff !important;
+    background: transparent!important;
+    border-radius: 20px !important;
+}
+textarea{
+    border: 2px solid #ffffff !important;
+    background: transparent!important;
+    border-radius: 20px !important;
+}
+::placeholder{
+    color: rgb(212, 212, 212) !important;
+}
+footer{
+    background: #101820;
+    width: 100%;
+    height: 15rem;
+}
+footer h5{
+    color: #FF4E00;
+    padding: 20px 20px 20px 0 ;
+    font-weight: 700;
+}
+footer h6{
+    color: #f0f0f0;
+}
+footer p{
+    color: #f0f0f0;
+    font-size: 15px;  
+}
+@media only screen and (max-width: 992px){
+    .header-content h1{
+        font-size: 70px;
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+    .navbar{
+        justify-content: center !important;
+    }
+    .nav-button{
+        display: none !important;
+    }
+    
+    .header-img{
+        padding: 20px;
+        align-items: center;
+    }
+    .header-content{
+        padding: 150px 50px !important;
+    }
+    .card-text{
+        font-size: 15px !important;
+     }
+     form{
+         text-align: center;
+         padding: 50px 10px 50px 10px !important;
+     }
+     footer{
+        height: 25rem;
+    }
+}
+@media only screen and (max-width: 500px){
+    .card-img{
+        min-height: 100%;
+    }
+    .smallscree{
+        display: none !important;
+    }
+    .small-screen{
+        display: inherit;
+    }
+.contactimg{
+    max-width: 200px !important;
+}
+   
+}
