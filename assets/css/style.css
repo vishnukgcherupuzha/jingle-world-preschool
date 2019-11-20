@@ -218,5 +218,12 @@ footer p{
 .contactimg{
     max-width: 200px !important;
 }
-   
+ .container{
+     margin: 0;
+     padding: 0;
+ } 
+ .heading{
+     padding-left: 0;
+     padding-right: 0;
+ } 
 }

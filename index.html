@@ -10,16 +10,62 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        function _(id) { return document.getElementById(id); }
+        function submitForm() {
+          if(this.n.value == "") {
+        _("status").innerHTML = '<p style="color:red" class="alert alert-danger">Please enter your Name ...</p>';
+      this.n.focus();
+      return false;
+      }
+      if(this.e.value == "") {
+        _("status").innerHTML = '<p style="color:red" class="alert alert-danger">Please enter your Email ID ...</p>';
+      this.e.focus();
+      return false;
+      }
+      if(this.mo.value == "") {
+        _("status").innerHTML = '<p style="color:red" class="alert alert-danger">Please enter your Mobile Number ...</p>';
+      this.mo.focus();
+      return false;
+      }
+      if(this.m.value == "") {
+        _("status").innerHTML = '<p style="color:red" class="alert alert-danger">Please write something ...</p>';
+      this.m.focus();
+      return false;
+      }
+          _("mybtn").disabled = true;
+          _("status").innerHTML = 'please wait ...';
+          var formdata = new FormData();
+          formdata.append("n", _("n").value);
+          formdata.append("e", _("e").value);
+          formdata.append("m", _("m").value);
+          formdata.append("mo", _("mo").value);
+          var ajax = new XMLHttpRequest();
+          ajax.open("POST", "send.php");
+          ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+              if (ajax.responseText == "success") {
+                _("my_form").innerHTML = '<h2 style="color:green">Thanks ' + _("n").value + ', your message has been sent.</h2>';
+              } else {
+                _("status").innerHTML = ajax.responseText;
+                _("mybtn").disabled = false;
+              }
+            }
+          }
+          ajax.send(formdata);
+        }
+      </script>
 </head>
 
 <body>
   <header>
-    <div class="header1"></div>
-    <div class="headback">
+    <div class="header1" data-aos="fade-down"></div>
+    <div class="headback" data-aos="fade-up">
       <div class="container">
         <nav class="navbar img-fluid">
-          <a class="navbar-brand " href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo"></a>
-          <a class="nav-link" href="#contact"><button class="nav-button">contact us <img
+          <a class="navbar-brand " href="index.html" data-aos="fade-right"><img src="assets/images/logo.png" class="logo" alt="Logo"></a>
+          <a class="nav-link" href="#contact" data-aos="fade-left"><button class="nav-button">contact us <img
                 style="padding-left: 10px; max-width: 30px;" class="img-fluid"
                 src="assets/images/Mask Group 1.png"></button></a>
         </nav>
@@ -34,13 +80,13 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 mt-3" style="padding-right: .5rem !important;">
+      <div class="col-sm-6 mt-3" style="padding-right: .5rem !important;" data-aos="fade-right">
         <div class="card-background">
           <div class="card card-left">
             <div class="card-body">
               <h5 class="card-title">Daycare</h5>
               <p class="card-text">
-                BannerThis program for children from the ages of 5 months and above,
+                This program for children from the ages of 5 months and above,
                 is designed in such a way, so as to ensure a safe and nurturing
                 environment for children to grow and flourish in.
               </p>
@@ -49,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 mt-3" style="padding-left: .5rem !important;">
+      <div class="col-sm-6 mt-3" style="padding-left: .5rem !important;" data-aos="fade-left">
         <div class="card-background">
           <div class="card">
             <img src="assets/images/photograph-of-happy-children-1815257.jpg" class="card-img-top" alt="sample">
@@ -64,7 +110,7 @@
         </div>
       </div>
     </div>
-    <div class="row smallscree">
+    <div class="row smallscree" data-aos="fade-up">
       <div class="col-12 mt-3">
         <div class="card-background">
           <div class="card">
@@ -88,7 +134,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 mt-3" style="padding-right: .5rem !important;">
+      <div class="col-sm-6 mt-3" style="padding-right: .5rem !important;"  data-aos="fade-right">
         <div class="card-background">
           <div class="card card-left">
             <div class="card-body">
@@ -103,7 +149,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 mt-3" style="padding-left: .5rem !important;">
+      <div class="col-sm-6 mt-3" style="padding-left: .5rem !important;" data-aos="fade-left"> 
         <div class="card-background">
           <div class="card">
             <img src="assets/images/boy-holding-block-toy-1598122.jpg" class="card-img-top" alt="sample">
@@ -118,7 +164,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 mt-3 small-screen" style="padding-right: .5rem !important;">
+      <div class="col-sm-6 mt-3 small-screen" style="padding-right: .5rem !important;" data-aos="fade-right">
         <div class="card-background">
           <div class="card card-left">
             <div class="card-body">
@@ -141,9 +187,9 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-12 mt-3">
+      <div class="col-12 mt-3" data-aos="fade-up">
         <div class="card-background">
-          <div class="card">
+          <div class="card" >
             <div class="card-horizontal row">
               <div class="card-body card-body-centre col-sm-6">
                 <p class="card-text">
@@ -171,13 +217,13 @@
   <div class="darkback">
     <div class="container  card-background-black">
       <div class="row ">
-        <div class="card card-black col-sm-4">
+        <div class="card card-black col-sm-4" data-aos="fade-up">
           <h5 class="card-title">Playgroup:</h5>
           <p class="card-text">
             Children who have completed 1 year 10 months of age on the 1st of June of the joining Year are eligible.
           </p>
         </div>
-        <div class="card card-black col-sm-4">
+        <div class="card card-black col-sm-4" data-aos="fade-up">
           <h5 class="card-title"> Nursery: </h5>
           <p class="card-text">
             Children who have
@@ -187,7 +233,7 @@
             joining Year are
             eligible. </p>
         </div>
-        <div class="card card-black col-sm-4">
+        <div class="card card-black col-sm-4" data-aos="fade-up">
           <h5 class="card-title">All others:</h5>
           <p class="card-text">
             For all other classes, the corresponding age is taken into account for admission. </p>
@@ -199,14 +245,14 @@
     <hr>
     <div class="container  card-background-black">
       <div class="row ">
-        <div class="card card-black col-sm-6">
+        <div class="card card-black col-sm-6" data-aos="fade-right">
           <h5 class="card-title" style="color: #FF4E00;">Admission Circular</h5>
           <p class="card-text">
             Admission open for PLAYGROUP, NURSERY LKG AND UKG for the academic year 2020 – 21
             Filled in Registration Forms to be submitted at school
             The timings are:- 9.00 am to 3.30 pm </p>
         </div>
-        <div class="card card-black col-sm-6">
+        <div class="card card-black col-sm-6" data-aos="fade-left">
           <h5 class="card-title" style="color: #FF4E00;"> Documents </h5>
           <p class="card-text">
             Latest passport size photograph of the student
@@ -222,7 +268,7 @@
   <div class="darkback">
     <div class="container  card-background-black">
       <div class="row ">
-        <div class="card card-black col-sm-6">
+        <div class="card card-black col-sm-6" data-aos="fade-right">
           <h5 class="card-title" style="color: #FF4E00;">School hours </h5>
           <p class="card-text">
             Nursery, LKG and UKG –
@@ -231,7 +277,7 @@
             9:30 am to 12:00 pm, Monday to Friday
           </p>
         </div>
-        <div class="card card-black col-sm-6">
+        <div class="card card-black col-sm-6" data-aos="fade-left">
           <h5 class="card-title" style="color: #FF4E00;"> Day care facility </h5>
           <p class="card-text">
             Timings: 1:15 pm to 6:30 pm / 7:30 pm</br>
@@ -251,35 +297,36 @@
   <div class="formbackground">
     <div class="container">
       <div class="row ">
-        <div class="img-square-wrapper contactimgpad col-md-6">
+        <div class="img-square-wrapper contactimgpad col-md-6" data-aos="fade-right">
           <img class="img-fluid contactimg"
             src="assets/images/409-4097670_school-portal-school-student-clipart-png-transparent-png.png"
             alt="Card image cap">
         </div>
-        <div class="col-md-6 justify-content-center">
-          <form style=" padding:50px  50px 0 0;">
+        <div class="col-md-6 justify-content-center" data-aos="fade-left">
+          <form id="my_form" onsubmit="submitForm(); return false;" style=" padding:50px  50px 0 0;">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name**">
+              <input type="text" id="n" class="form-control" placeholder="Name*">
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email**">
+              <input type="email" id="e" class="form-control" placeholder="Email*">
             </div>
             <div class="form-group">
-              <input type="number" class="form-control" placeholder="Mobile**">
+              <input type="number" id="mo" class="form-control" placeholder="Mobile*">
             </div>
             <div class="form-group">
-              <textarea class="form-control" rows="4" placeholder="Message**"></textarea>
+              <textarea class="form-control" id="m" rows="4" placeholder="Message*"></textarea>
             </div>
-            <a class="nav-link " href="#"><button class="con-button">contact us <img
+            <button class="con-button"  id="mybtn" type="submit" value="Send Message">contact us <img
                   style="padding-left: 10px; max-width: 30px;" class="img-fluid"
-                  src="assets/images/Mask Group 1.png"></button></a>
+                  src="assets/images/Mask Group 1.png"></button>
+                  <h4 style="color:cyan"><span id="status"></span></h4>
           </form>
         </div>
       </div>
     </div>
   </div>
   <footer>
-    <div class="container">
+    <div class="container" data-aos="fade-right">
       <h5>Jingle World Preschool</h5>
       <div class="row">
         <div class="col-sm-4">
@@ -308,5 +355,6 @@
   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/style.js"></script>
 </html>
